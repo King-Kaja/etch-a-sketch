@@ -1,14 +1,15 @@
 .grid {
   display: flex;
-
   flex-wrap: wrap;
 }
 
+/* By default grid squares are white by default*/
 .grid-square{
   background-color: white;
   outline: 1px solid black;
 }
 
+/* Grid squares will lower in brightness on hover*/
 .grid-square:hover {
   filter: brightness(85%);
 }
