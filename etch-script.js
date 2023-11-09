@@ -33,4 +33,25 @@ function setUpGrid(width, height){
   }
 }
 
-setUpGrid(16,16);
+// Add UI for input
+const button = document.querySelector('button');
+const width = document.querySelector('#width');
+const height = document.querySelector('#height');
+
+button.addEventListener('click', () => {
+
+  // Check if input is valid
+  if(isNaN(width.value) || isNaN(height.value)){
+    alert("Width and height must be a positive whole numbers" );
+  }
+  else if(width.value < 0 || height.value < 0 || width.value % 1 != 0 || height.value % 1 != 0){
+    alert("Width and height must be a positive whole numbers" );
+  }
+  else{
+
+    // Clear page of grid
+    grid.innerHTML ="";
+    // Call helper function to create grid
+    setUpGrid(width.value, height.value);
+  }
+});

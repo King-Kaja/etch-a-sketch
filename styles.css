@@ -13,3 +13,7 @@
 .grid-square:hover {
   filter: brightness(85%);
 }
+
+.input {
+  margin-right:20px;
+ }
