@@ -21,6 +21,11 @@ function setUpGrid(width, height){
     const square = document.createElement('div');
     square.classList.add('grid-square');
 
+    // Add color changing function to square
+    square.addEventListener('click',function () {
+        changeColor(square);
+    });
+
     // Dimensions of grid square depend on the lowest value dimension of the grid
     if(width >= height){
       square.setAttribute('style', `height: ${gridWidth/width}px; width: ${gridWidth/width}px;`);
@@ -31,6 +36,14 @@ function setUpGrid(width, height){
 
     grid.appendChild(square);
   }
+}
+
+// changes color of square based on current value of color input
+function changeColor(gridSquare){
+
+  const color = document.querySelector('#color');
+  console.log(color.value);
+  gridSquare.style.backgroundColor= color.value;
 }
 
 // Add UI for input
