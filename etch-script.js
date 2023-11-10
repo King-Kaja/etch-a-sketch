@@ -5,11 +5,23 @@ function setUpGrid(width, height){
   // Total number of squares
   squares = width * height;
 
-
   // 750px are the base dimensions of the grid
-  ratio = width/height;
-  gridWidth = 750 * ratio;
-  gridHeight = 750 / ratio;
+  if(width > height){
+    squareLength = 750/width;
+    gridWidth = 750;
+    gridHeight= squareLength * height;
+  }
+  else if( height > width){
+    squareLength = 750/height;
+    gridWidth = squareLength * width;
+    gridHeight= 750;
+  }
+  else{
+    squareLength = 750/width;
+    gridWidth = 750;
+    gridHeight= 750;
+  }
+
 
   // Set width and height of grid in terms of pixels
   grid.setAttribute('style', `width: ${gridWidth}px; height: ${gridHeight}px;`);
@@ -28,10 +40,10 @@ function setUpGrid(width, height){
 
     // Dimensions of grid square depend on the lowest value dimension of the grid
     if(width >= height){
-      square.setAttribute('style', `height: ${gridWidth/width}px; width: ${gridWidth/width}px;`);
+      square.setAttribute('style', `height: ${squareLength}px; width: ${squareLength}px;`);
     }
     else{
-      square.setAttribute('style', `height: ${gridHeight/height}px; width: ${gridHeight/height}px;`);
+      square.setAttribute('style', `height: ${squareLength}px; width: ${squareLength}px;`);
     }
 
     grid.appendChild(square);
